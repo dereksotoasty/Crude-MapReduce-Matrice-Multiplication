@@ -46,19 +46,14 @@ class Reducer:
     def getSum(self):
         return self.sum
 
-# this function maps elements from matrixA to key value pairs, puts them into the AMapped[] array
-def mapper1():
+# this function maps elements from matrix A and matrix B to key value pairs, puts them into the AMapped[] and BMaped[] arrays
+def mapper():
     for x in range(len(A)):
         for y in range(len(B[0])):
-            for z in range(len(A[x])):
+            for z in range(len(A[0])):
                 AMapped.append([[x, y], A[x][z]])
-
-# this function maps matrixB to key value pairs, puts them into the BMapped[] array
-def mapper2():
-    for x in range(len(B[0])):
-        for y in range(len(A)):
-            for z in range(len(B)):
                 BMapped.append([[x, y], B[z][y]])
+
 
 # assigns like-key values from AMapped and BMapped arrays to their corresponding reducer
 def shuffleAndSort():
@@ -84,9 +79,9 @@ def reduce():
             # r
             product[x].append(reducers[x][y].reduce())
 
+
 # runs mapping processes
-mapper1()
-mapper2()
+mapper()
 # runs the shuffling and sorting algo
 shuffleAndSort()
 # reduces and outputs in the product[] array
