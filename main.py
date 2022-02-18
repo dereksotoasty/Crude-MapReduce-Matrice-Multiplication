@@ -73,12 +73,14 @@ def shuffleAndSort():
 
 # function that performs the reducing process, outputs the result of each reducer in the the product[] array
 def reduce():
+    print('Output from Reducers:')
     for x in range(len(reducers)):
         product.append([])
         for y in range(len(reducers[x])):
             # r
             product[x].append(reducers[x][y].reduce())
-
+            print('((' + str(x) + ',' + str(y) + '), ' + str(reducers[x][y].getSum()) + ')')
+    print()
 
 # runs mapping processes
 mapper()
@@ -86,6 +88,6 @@ mapper()
 shuffleAndSort()
 # reduces and outputs in the product[] array
 reduce()
-
+print('Resulting Matrix: ')
 for x in product:
     print(x)
